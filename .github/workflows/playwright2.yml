@@ -22,7 +22,7 @@ jobs:
       run: | 
         pytest cookiecutters.py
     - name: Run your tests
-      run: python mycookieclicker.py
+      run: python --tracing=retain-on-failure mycookieclicker.py
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
       with:
