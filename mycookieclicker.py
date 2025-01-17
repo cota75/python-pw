@@ -20,7 +20,7 @@ def run(playwright: Playwright) -> None:
         page.locator("#bigCookie").click()
         cookies_count = page.locator("#cookies").text_content().split(" ")[0]
         print(cookies_count)
-        if cookies_count > 20:
+        if int(cookies_count) > 20:
             break
 
 
