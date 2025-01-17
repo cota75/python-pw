@@ -20,7 +20,6 @@ jobs:
         pip install -r requirements.txt
     - name: Ensure browsers are installed
       run: | 
-        python -m playwright install --with-deps
         pytest cookiecutters.py
     - name: Run your tests
       run: python mycookieclicker.py
