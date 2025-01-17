@@ -11,12 +11,12 @@ def setup_browser():
         page = context.new_page()
 
         # Start tracing
-        #context.tracing.start(screenshots=True, snapshots=True, sources=True)
+        context.tracing.start(screenshots=True, snapshots=True, sources=True)
         
         yield page
 
         # Stop tracing and save it to a file
-        #context.tracing.stop(path="trace.zip")
+        context.tracing.stop(path="trace.zip")
         
     
         context.close()
@@ -37,6 +37,8 @@ def test_cookie_clicker(setup_browser):
     while num_cookies != product_price:
         page.locator("#bigCookie").click()
         num_cookies = page.locator('#cookies').text_content().split(" ")[0]
+        if int(num_cookies) > 20:
+            break
 
     # Check if the first product becomes unlocked
     product = page.locator("#product0")
