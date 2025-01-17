@@ -19,10 +19,9 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
     - name: Ensure browsers are installed
-      run: | 
-        pytest cookiecutters.py
+      run: python -m playwright install --with-deps
     - name: Run your tests
-      run: python --tracing=retain-on-failure mycookieclicker.py
+      run: pytest cookiecutters.py
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
       with:
