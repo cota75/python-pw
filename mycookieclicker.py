@@ -7,7 +7,7 @@ from playwright.sync_api import Playwright, sync_playwright, expect
 #cookies - <div id="cookies" class="title">15 cookies<div id="cookiesPerSecond">per second: 0</div></div>
 
 def run(playwright: Playwright) -> None:
-    browser = playwright.chromium.launch(headless=False)
+    browser = playwright.chromium.launch(headless=True)
     context = browser.new_context()
     page = context.new_page()
     page.goto("https://orteil.dashnet.org/cookieclicker/")
