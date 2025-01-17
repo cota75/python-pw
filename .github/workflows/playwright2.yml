@@ -27,5 +27,5 @@ jobs:
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
       with:
-        name: playwright-traces
-        path: test-results/
+        name: trace.zip
+        path: . 
